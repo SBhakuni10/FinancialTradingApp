@@ -4,13 +4,22 @@ import { AuthContext } from "../context/AuthContext";
 import { LogOut } from "lucide-react";
 
 function Navbar() {
-  const { user, logout } = useContext(AuthContext);
+  const { user, logout, loading } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleLogout = () => {
     logout();
     navigate("/");
   };
+
+  // 🛑 Jab tak token decode ho raha hai tab Navbar ko flicker hone se roko
+  if (loading) {
+    return (
+      <nav className="bg-gradient-to-r from-blue-300 to-blue-800 text-white shadow-md p-4">
+        <p>Loading...</p>
+      </nav>
+    );
+  }
 
   return (
     <nav className="sticky top-0 z-50 bg-gradient-to-r from-blue-300 to-blue-800 text-white shadow-md">
@@ -26,35 +35,20 @@ function Navbar() {
         {/* Nav Links */}
         {user && (
           <div className="flex items-center space-x-6">
-            <Link
-              to="/dashboard"
-              className="hover:text-yellow-100 font-medium transition"
-            >
+            <Link to="/dashboard" className="hover:text-yellow-100 font-medium transition">
               Home
             </Link>
-            <Link
-              to="/products"
-              className="hover:text-yellow-100 font-medium transition"
-            >
+            <Link to="/products" className="hover:text-yellow-100 font-medium transition">
               Products
             </Link>
-            <Link
-              to="/portfolio"
-              className="hover:text-yellow-100 font-medium transition"
-            >
+            <Link to="/portfolio" className="hover:text-yellow-100 font-medium transition">
               Portfolio
             </Link>
-            <Link
-              to="/watchlist"
-              className="hover:text-yellow-100 font-medium transition"
-            >
+            <Link to="/watchlist" className="hover:text-yellow-100 font-medium transition">
               Watchlist
             </Link>
             {user.role === "admin" && (
-              <Link
-                to="/admin"
-                className="hover:text-yellow-100 font-medium transition"
-              >
+              <Link to="/admin" className="hover:text-yellow-100 font-medium transition">
                 Admin
               </Link>
             )}
@@ -72,16 +66,10 @@ function Navbar() {
             </button>
           ) : (
             <div className="flex items-center space-x-4">
-              <Link
-                to="/"
-                className="hover:text-yellow-100 font-medium transition"
-              >
+              <Link to="/" className="hover:text-yellow-100 font-medium transition">
                 Login
               </Link>
-              <Link
-                to="/signup"
-                className="hover:text-yellow-100 font-medium transition"
-              >
+              <Link to="/signup" className="hover:text-yellow-100 font-medium transition">
                 Signup
               </Link>
             </div>

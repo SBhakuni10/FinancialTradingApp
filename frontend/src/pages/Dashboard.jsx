@@ -1,53 +1,64 @@
 import { Link } from "react-router-dom";
 
-
 function Dashboard() {
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gray-50">
-    
-
-      {/* Dashboard Content */}
-      <div className="relative z-10 max-w-7xl mx-auto mt-12 p-6">
-        <h2 className="text-4xl font-semibold mb-6 text-gray-800">Dashboard</h2>
-        <p className="text-gray-600 mb-10 text-lg">
-          Welcome to your financial trading dashboard. Access your products, portfolio, watchlist, and KYC verification from below.
+    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100">
+      {/* Hero Section */}
+      <div className="relative z-10 max-w-7xl mx-auto mt-16 p-7 text-center">
+        <h2 className="text-5xl font-extrabold mb-4 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+          Welcome to Your Trading Dashboard
+        </h2>
+        <p className="text-gray-700 max-w-2xl mx-auto text-lg leading-relaxed">
+          Manage your investments with ease and confidence.  
+          Explore new opportunities, track your growth, and take smarter
+          financial decisions — all in one place.
         </p>
+      </div>
 
+      {/* Features Grid */}
+      <div className="relative z-10 max-w-7xl mx-auto mt-12 p-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <Link
             to="/products"
-            className="bg-blue-50 border border-blue-100 shadow-md hover:shadow-lg transition p-8 rounded-xl flex flex-col items-center justify-center text-gray-800"
+            className="bg-white border border-blue-100 shadow-md hover:shadow-xl hover:-translate-y-1 transition transform p-8 rounded-2xl flex flex-col items-center justify-center text-gray-800"
           >
-            <span className="text-2xl font-medium mb-2">Products</span>
-            <p className="text-blue-600 text-center text-sm">Browse and invest in stocks and mutual funds.</p>
+            <span className="text-3xl font-semibold mb-3 text-blue-600">Products</span>
+            <p className="text-gray-600 text-center text-sm">
+              Browse and invest in top stocks & mutual funds.
+            </p>
           </Link>
 
           <Link
             to="/portfolio"
-            className="bg-green-50 border border-green-100 shadow-md hover:shadow-lg transition p-8 rounded-xl flex flex-col items-center justify-center text-gray-800"
+            className="bg-white border border-green-100 shadow-md hover:shadow-xl hover:-translate-y-1 transition transform p-8 rounded-2xl flex flex-col items-center justify-center text-gray-800"
           >
-            <span className="text-2xl font-medium mb-2">Portfolio</span>
-            <p className="text-green-600 text-center text-sm">View your investments and track performance.</p>
+            <span className="text-3xl font-semibold mb-3 text-green-600">Portfolio</span>
+            <p className="text-gray-600 text-center text-sm">
+              Track and analyze your investment performance.
+            </p>
           </Link>
 
           <Link
             to="/watchlist"
-            className="bg-yellow-50 border border-yellow-100 shadow-md hover:shadow-lg transition p-8 rounded-xl flex flex-col items-center justify-center text-gray-800"
+            className="bg-white border border-yellow-100 shadow-md hover:shadow-xl hover:-translate-y-1 transition transform p-8 rounded-2xl flex flex-col items-center justify-center text-gray-800"
           >
-            <span className="text-2xl font-medium mb-2">Watchlist</span>
-            <p className="text-yellow-600 text-center text-sm">Keep an eye on your favorite products.</p>
+            <span className="text-3xl font-semibold mb-3 text-yellow-600">Watchlist</span>
+            <p className="text-gray-600 text-center text-sm">
+              Keep an eye on your favorite stocks & funds.
+            </p>
           </Link>
 
           <Link
             to="/kyc"
-            className="bg-purple-50 border border-purple-100 shadow-md hover:shadow-lg transition p-8 rounded-xl flex flex-col items-center justify-center text-gray-800"
+            className="bg-white border border-purple-100 shadow-md hover:shadow-xl hover:-translate-y-1 transition transform p-8 rounded-2xl flex flex-col items-center justify-center text-gray-800"
           >
-            <span className="text-2xl font-medium mb-2">Complete KYC</span>
-            <p className="text-purple-600 text-center text-sm">Verify your identity to start trading.</p>
+            <span className="text-3xl font-semibold mb-3 text-purple-600">Complete KYC</span>
+            <p className="text-gray-600 text-center text-sm">
+              Verify your identity & start secure trading.
+            </p>
           </Link>
         </div>
       </div>
-       
     </div>
   );
 }
