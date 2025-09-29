@@ -12,7 +12,7 @@ function Navbar() {
     navigate("/");
   };
 
-  // 🛑 Jab tak token decode ho raha hai tab Navbar ko flicker hone se roko
+
   if (loading) {
     return (
       <nav className="bg-gradient-to-r from-blue-300 to-blue-800 text-white shadow-md p-4">
